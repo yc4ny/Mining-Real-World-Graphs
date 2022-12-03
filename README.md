@@ -44,7 +44,7 @@ The Label Propagation algorithm is a fast algorithm for finding communities in a
 
 ### Algorithm 
 <p align= "center">
-<img src="readme_img/algo_label.png" width="700" height="300" alt="Clustering" class="center"/><br/><br/>
+<img src="readme_img/algo_label.png" width="750" height="300" alt="Clustering" class="center"/><br/><br/>
 </p>
 
 ### Options
