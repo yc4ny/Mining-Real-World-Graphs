@@ -25,7 +25,7 @@ python-louvain    0.11
 texttable         1.6.7
 ```
 
-Install the remaining requirements with pip:
+Install the requirements with pip:
 ```
 pip install -r requirements.txt
 ```

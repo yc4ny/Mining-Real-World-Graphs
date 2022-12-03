@@ -1,5 +1,5 @@
-networkx
-tqdm
+networkx==2.4
+tqdm==4.64.1
 python-louvain==0.11
-pandas
-texttable
+pandas==0.25.3
+texttable==1.6.7
