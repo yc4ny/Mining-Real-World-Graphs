@@ -38,7 +38,7 @@ To partition other graphs, please match the format of the input graph as stated 
 
 ## Community Detection - Label Propagation 
 <img src="readme_img/cluster.png" width="300" height="300" alt="Clustering" /><br/><br/>
-The Label Propagation algorithm is a fast algorithm for finding communities in a graph, while detecting these communites using the network structure alone as its guide and does not require a pre-defined objective function or prior informations about the communities. 
+The Label Propagation algorithm is a fast algorithm for finding communities in a graph, while detecting these communites using the network structure alone as its guide and does not require a pre-defined objective function or prior informations about the communities. The quality of community detection is determined with the modularity value.
 
 ### Options
 
@@ -55,7 +55,7 @@ Clustering the input graph is done by the `label_propagation/label_propagation.p
 ```
 python label_propagation/label_propagation.py --input data/custom/sample_data.txt --assignment-output output/sample_data.json --rounds 20
 ```
-
+Detected communities will be in the form of a `.json` file which can be found in  `output` folder. 
 
 
 
