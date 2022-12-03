@@ -48,10 +48,8 @@ Clustering the input graph is done by the `label_propagation/label_propagation.p
 
 ```
   --input               STR    Input graph path.                                     
-  --assignment-output   STR    Node-cluster assignment dictionary path.
-  --weighing            STR    Weighting strategy.                        
-  --rounds              INT    Number of iterations.
-  --seed                INT    Initial seed          
+  --assignment-output   STR    Node-cluster assignment dictionary path.                     
+  --rounds              INT    Number of iterations.      
 ```
 #### Run Label Propagation on the sample data with 
 ```
