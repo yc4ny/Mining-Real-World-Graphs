@@ -15,7 +15,7 @@ Implementation of the term project for the course M2177.003000 Advanced Data Min
 conda create -n venv_graph python=3.5
 conda activate venv_graph
 ```
-The codebase is implemented in Python 3.5.2 | Anaconda 4.2.0 (64-bit). Package versions used for development are just below.
+> The codebase is implemented in Python 3.5.2 | Anaconda 4.2.0 (64-bit). Package versions used for development are just below.
 ```
 networkx          2.4
 tqdm              4.64.1
@@ -25,7 +25,7 @@ python-louvain    0.11
 texttable         1.6.7
 ```
 
-Install the requirements with pip:
+> Install the requirements with pip:
 ```
 pip install -r requirements.txt
 ```
