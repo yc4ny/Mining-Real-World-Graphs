@@ -41,5 +41,5 @@ for connections in data_read:
     string += (str(a) + "," + str(b) + "\n")
 
 # Save File 
-with open("data/processed_communityDetection/sample_data.txt", "w") as text_file:
+with open("data/processed_communityDetection/processed_sample_data.txt", "w") as text_file:
     text_file.write(string)
