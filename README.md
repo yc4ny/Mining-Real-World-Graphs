@@ -40,11 +40,11 @@ To partition other graphs, please match the format of the input graph as stated 
 <img src="readme_img/cluster.png" width="300" height="300" alt="Clustering" /><br/>
 
 
-## Options
+### Options
 
 Creating a clustering is handled by the `src/label_propagation.py` script which provides the following command line arguments.
 
-### Model options
+#### Model options
 
 ```
   --input               STR    Input graph path.                          Default is `data/politician_edges.csv`.                                     
