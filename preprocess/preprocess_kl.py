@@ -1,7 +1,8 @@
 import json 
 import csv
-import tqdm as tqdm 
+from tqdm import tqdm
 import argparse
+import time 
 
 parser = argparse.ArgumentParser(description = "Age Classification")
 parser.add_argument('--input_dir', type = str, default = 'output/sample_data.json', help = 'output from community detection')
@@ -32,7 +33,7 @@ for key, value in json_data.items():
         temp[value] = [key]
 
 # Read input CSV file (original graph connections)
-with open("args.original_edges") as fp:
+with open(args.original_edges) as fp:
     reader = csv.reader(fp, delimiter=",", quotechar='"')
     data_read = [row for row in reader]
 
@@ -40,11 +41,13 @@ with open("args.original_edges") as fp:
 string = ""
 key_list = list(temp.keys())
 val_list = list(temp.values())
-for connections in data_read:
-    val_1 = connections[0]
-    val_2 = connections[1]
+for i in tqdm(range(len(data_read))):
+    val_1 = data_read[i][0]
+    val_2 = data_read[i][1]
     a = get_key(temp, val_1)
     b = get_key(temp, val_2)
+    if a == b:
+        continue
     string += (str(a) + "," + str(b) + "\n")
 
 # Save File 
