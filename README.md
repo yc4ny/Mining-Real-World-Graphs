@@ -42,7 +42,7 @@ To partition other graphs, please match the format of the input graph as stated 
 
 ### Options
 
-Creating a clustering is handled by the `src/label_propagation.py` script which provides the following command line arguments.
+Clustering the input graph is done by the `label_propagation/label_propagation.py` script which provides the following command line arguments.
 
 #### Model options
 
