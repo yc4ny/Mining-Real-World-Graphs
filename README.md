@@ -55,7 +55,7 @@ Clustering the input graph is done by the `label_propagation/label_propagation.p
 ```
 python label_propagation/label_propagation.py --input data/custom/sample_data.txt --assignment-output output/sample_data.json --rounds 20
 ```
-Detected communities will be in the form of a `.json` file which can be found in  `output` folder. 
+Detected communities will be in the form of a `.json` file which can be found in  `output` folder. <br/>
 
 ## Graph Partitioning - Kernighan-Lin 
 <img src="readme_img/kl.png" width="300" height="300" alt="KL" /><br/><br/>
