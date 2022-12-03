@@ -1,13 +1,13 @@
 # Partitioning Real World Graphs<br/> Label Propagation for Community Detection
-This is the official implementation of the term project for the course M2177.003000 Advanced Data Mining Course at SNU.<br/> 
+Implementation of the term project for the course M2177.003000 Advanced Data Mining Course at SNU.<br/> 
 
-![Stereo Reconstruction Final Results](git_images/checkerboard_result.png)<br/>
+![Real World Graph Partitioning](readme_img/poor_partitoning.png)<br/>
 > - Red points indicate the 2D reprojection of the reconstructed 3D points. <br/>
 > - Green points indicate the 2D points found by MATLAB's Camera Calibrator.<br/> 
 > - The "ON" sign in green indicates that the checkerboard points have been detected with MATLAB's calibrator. There must be at least 2 cameras with "ON" sign in order to reconstruct 3D points.<br/> 
 > - The "Frame Error" indicates the average reprojection error (Euclidean distance) of points of the reconstructed 3D points. <br/>
 
-![Stereo Reconstruction Final Results](git_images/openpose_result.png)<br/><br/> 
+![Stereo Reconstruction Final Results](readme_img/good_partitioning.png)<br/><br/> 
 > - Green joints indicate the 2D reprojection of the reconstructed 3D joints. <br/>
 > - Orange joints indicate the 2D joints found by openpose.<br/> 
 > - The "Frame Reprojection Error" indicates the average reprojection error (Euclidean distance) of points of the reconstructed 3D joints. <br/>
