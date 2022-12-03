@@ -53,7 +53,10 @@ Clustering the input graph is done by the `label_propagation/label_propagation.p
   --rounds              INT    Number of iterations.
   --seed                INT    Initial seed          
 ```
-
+#### Run Label Propagation on the sample data with 
+```
+python label_propagation/label_propagation.py --input data/custom/sample_data.txt --assignment-output output/sample_data.json --rounds 20
+```
 
 
 
