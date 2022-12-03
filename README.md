@@ -4,6 +4,7 @@ Implementation of the term project for the course M2177.003000 Advanced Data Min
 ![Real World Graph Partitioning](readme_img/intro.png)<br/>
 > - Left image shows a poor partitioned graph. There are many inter-partition links <br/>
 > - Write Image shows a good partitoned graph. Vertices that are highly connected are assigned to the same partition.<br/>
+> - Our method aims to reduce the number of vertex-cuts in the final partitioned graph. 
 
 
 ## Environment Setup
