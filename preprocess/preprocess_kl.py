@@ -1,6 +1,13 @@
 import json 
 import csv
 import tqdm as tqdm 
+import argparse
+
+parser = argparse.ArgumentParser(description = "Age Classification")
+parser.add_argument('--input_dir', type = str, default = 'output/sample_data.json', help = 'output from community detection')
+parser.add_argument('--original_edges', type = str, default = 'data/custom/sample_data.csv', help = 'original input with all edges')
+parser.add_argument('--output_dir', type = str, default = 'data/processed_communityDetection/processed_sample_data.txt', help = 'processed data, ready for KL algorithm')
+args = parser.parse_args()
 
 # function to return key for any value
 def get_key(dic, val):
@@ -11,7 +18,7 @@ def get_key(dic, val):
     return "key doesn't exist"
 
 # Load Community Detection Output
-with open('output/sample_data.json', 'r') as f:   
+with open(args.input_dir, 'r') as f:   
     # Key: Node #
     # Value: Community #
     json_data = json.load(f)
@@ -25,7 +32,7 @@ for key, value in json_data.items():
         temp[value] = [key]
 
 # Read input CSV file (original graph connections)
-with open("data/custom/sample_data.csv") as fp:
+with open("args.original_edges") as fp:
     reader = csv.reader(fp, delimiter=",", quotechar='"')
     data_read = [row for row in reader]
 
@@ -41,5 +48,5 @@ for connections in data_read:
     string += (str(a) + "," + str(b) + "\n")
 
 # Save File 
-with open("data/processed_communityDetection/processed_sample_data.txt", "w") as text_file:
+with open(args.output_dir, "w") as text_file:
     text_file.write(string)
