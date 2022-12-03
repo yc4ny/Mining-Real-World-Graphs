@@ -50,7 +50,7 @@ Clustering the input graph is done by the `label_propagation/label_propagation.p
 
 ```
   --input               STR    Input graph path.                                     
-  --assignment-output   STR    Node-cluster assignment dictionary path.                     
+  --assignment-output   STR    Node-cluster assignment path.                     
   --rounds              INT    Number of iterations.      
 ```
 #### Example for running label propagation on the sample data
@@ -65,4 +65,10 @@ Detected communities will be in the form of a `.json` file which can be found in
 </p>
 The Kernighan-Lin (KL) algorithm takes an undirected graph as input and partitions the vertices into two disjoint subsets A,B of equal(or nearly equal) size, in a way that minimizes the sum of the weights of the subsets of edges that cross from A,B.
 
+#### Model options
+
+```
+  --input               STR    Input graph path. 
+  --assignment-output   STR    Partitioned graph path.                                             
+```
 

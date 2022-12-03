@@ -1,5 +1,10 @@
 # Implementation of Kernighan-Lin graph partitioning algorithm
 # Based on the paper: An Efficient Heuristic Procedure for Partitioning Graphs (https://ieeexplore.ieee.org/document/6771089)
+import argparse
+
+parser = argparse.ArgumentParser(description = "Age Classification")
+parser.add_argument('--input', type = str, default = 'data/custom/sample_data.txt', help = 'input graph')
+args = parser.parse_args()
 
 class Vertex:
     # id, edges, partition_label
@@ -156,7 +161,7 @@ class KernighanLin():
         print ("Total passes: " + str(p) + "\t\tTotal gain: " + str(total_gain) + "\t\tFinal partition cost: " + str(self.graph.get_partition_cost()) )
         
 def main():
-    graph = load_data("data/custom/sample_data.txt")
+    graph = load_data(args.input)
     kl = KernighanLin(graph)
     kl.partition()
 
