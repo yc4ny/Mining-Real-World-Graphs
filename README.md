@@ -51,7 +51,7 @@ Clustering the input graph is done by the `label_propagation/label_propagation.p
   --assignment-output   STR    Node-cluster assignment dictionary path.                     
   --rounds              INT    Number of iterations.      
 ```
-#### Run Label Propagation on the sample data with 
+#### Example for running label propagation on the sample data
 ```
 python label_propagation/label_propagation.py --input data/custom/sample_data.txt --assignment-output output/sample_data.json --rounds 20
 ```
