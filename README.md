@@ -47,11 +47,11 @@ Creating a clustering is handled by the `src/label_propagation.py` script which 
 #### Model options
 
 ```
-  --input               STR    Input graph path.                                                              
-  --assignment-output   STR    Node-cluster assignment dictionary path.   
+  --input               STR    Input graph path.                                     
+  --assignment-output   STR    Node-cluster assignment dictionary path.
   --weighing            STR    Weighting strategy.                        
-  --rounds              INT    Number of iterations.                      
-  --seed                INT    Initial seed           .                   
+  --rounds              INT    Number of iterations.
+  --seed                INT    Initial seed          
 ```
 
 
