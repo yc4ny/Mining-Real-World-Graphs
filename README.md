@@ -31,7 +31,10 @@ pip install -r requirements.txt
 ```
 ## Datasets
 <p align="justify">
-The code takes an input graph in a csv file. Every row indicates an edge between two nodes separated by a comma. The first row is a header. Nodes should be indexed starting with 0. Sample graphs for the `Facebook Politicians` dataset is included in the  `data/` directory.</p>
+The code takes an input graph in a csv/txt file. Each row of the file indicates an edge between the two nodes separated by a comma.<br/>
+For lightly testing there are custom test graphs in the  `data/custom ` folder 
+
+</p>
 
 ## Options
 
