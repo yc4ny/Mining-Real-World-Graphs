@@ -1,4 +1,4 @@
-# Partitioning Real World Graphs<br/> Label Propagation for Community Detection
+# Partitioning Real World Graphs with <br/> Label Propagation for Community Detection
 Implementation of the term project for the course M2177.003000 Advanced Data Mining Course at SNU.<br/> 
 
 ![Real World Graph Partitioning](readme_img/intro.png)<br/>
@@ -8,12 +8,12 @@ Implementation of the term project for the course M2177.003000 Advanced Data Min
 
 
 ## Environment Setup
-> Note: This code was developed on Ubuntu 20.04/22.04 with Python 3.7. Later versions should work, but have not been tested.
+> Note: This code was developed on Ubuntu 20.04 with Python 3.7. Later versions should work, but have not been tested.
 Create and activate a virtual environment to work in, e.g. using Conda:
 
 ```
-conda create -n venv_stereo python=3.7
-conda activate venv_stereo
+conda create -n venv_graph python=3.7
+conda activate venv_graph
 ```
 Install the remaining requirements with pip:
 ```
