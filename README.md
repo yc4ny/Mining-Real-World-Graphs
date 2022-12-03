@@ -90,8 +90,8 @@ The Kernighan-Lin (KL) algorithm takes an undirected graph as input and partitio
 ### Model options
 
 ```
-  --input               STR    Input graph path. 
-  --assignment-output   STR    Partitioned graph path.                                           
+  --input_dir    STR    Input graph path. 
+  --output_dir   STR    Partitioned graph path.                                           
 ```
 
 #### Example for running KL on the sample data
