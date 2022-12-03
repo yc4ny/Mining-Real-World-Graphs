@@ -1,7 +1,7 @@
 # Partitioning Real World Graphs<br/> Label Propagation for Community Detection
 Implementation of the term project for the course M2177.003000 Advanced Data Mining Course at SNU.<br/> 
 
-![Real World Graph Partitioning](readme_img/poor_partitoning.png)<br/>
+![Real World Graph Partitioning](readme_img/intro.png)<br/>
 > - Red points indicate the 2D reprojection of the reconstructed 3D points. <br/>
 > - Green points indicate the 2D points found by MATLAB's Camera Calibrator.<br/> 
 > - The "ON" sign in green indicates that the checkerboard points have been detected with MATLAB's calibrator. There must be at least 2 cameras with "ON" sign in order to reconstruct 3D points.<br/> 
