@@ -65,7 +65,7 @@ python label_propagation/label_propagation.py --input data/custom/sample_data.tx
 Detected communities will be in the form of a `.json` file which can be found in  `output` folder. <br/>
 
 #### Running Baseline Community Detection Algorithms
-Other community detection algorithms such as the Girvan Newman, and the Louvain's algoirithm can be found in `baseline_tests/communitydetection` folder. Update the `test.py` with the algorithm you wish to test and run the file. 
+Other community detection algorithms such as the  <a href="https://en.wikipedia.org/wiki/Girvan%E2%80%93Newman_algorithm" target="_blank">Girvan Newman</a>, and the <a href="https://en.wikipedia.org/wiki/Louvain_method" target="_blank">Louvain</a> algorithm can be found in `baseline_tests/communitydetection` folder. Update the `test.py` with the algorithm you wish to test and run the file. 
 
 ## Graph Partitioning - Kernighan-Lin 
 <p align= "center">
