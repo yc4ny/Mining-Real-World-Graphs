@@ -37,7 +37,7 @@ If you wish to test on real world graphs, please download the network data from 
 To partition other graphs, please match the format of the input graph as stated above. 
 
 ## Community Detection - Label Propagation 
-<img src="readme_img/cluster.png" width="480" height="480" alt="Clustering" /><br/>
+<img src="readme_img/cluster.png" width="240" height="240" alt="Clustering" /><br/>
 
 
 ## Options
