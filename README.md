@@ -29,7 +29,23 @@ Install the requirements with pip:
 ```
 pip install -r requirements.txt
 ```
+### Datasets
+<p align="justify">
+The code takes an input graph in a csv file. Every row indicates an edge between two nodes separated by a comma. The first row is a header. Nodes should be indexed starting with 0. Sample graphs for the `Facebook Politicians` dataset is included in the  `data/` directory.</p>
 
+### Options
+
+Creating a clustering is handled by the `src/label_propagation.py` script which provides the following command line arguments.
+
+#### Model options
+
+```
+  --input               STR    Input graph path.                          Default is `data/politician_edges.csv`.                                     
+  --assignment-output   STR    Node-cluster assignment dictionary path.   Default is `output/politician.json`.
+  --weighing            STR    Weighting strategy.                        Default is `overlap`.
+  --rounds              INT    Number of iterations.                      Default is 30.
+  --seed                INT    Initial seed           .                   Default is 42.
+```
 
 
 
