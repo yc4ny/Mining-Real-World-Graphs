@@ -37,7 +37,9 @@ If you wish to test on real world graphs, please download the network data from 
 To partition other graphs, please match the format of the input graph as stated above. 
 
 ## Community Detection - Label Propagation 
+<p align= "center">
 <img src="readme_img/cluster.png" width="300" height="300" alt="Clustering" class="center"/><br/><br/>
+</p>
 The Label Propagation algorithm is a fast algorithm for finding communities in a graph, while detecting these communites using the network structure alone as its guide and does not require a pre-defined objective function or prior informations about the communities. The quality of community detection is determined with the modularity value.
 
 ### Options
@@ -58,7 +60,9 @@ python label_propagation/label_propagation.py --input data/custom/sample_data.tx
 Detected communities will be in the form of a `.json` file which can be found in  `output` folder. <br/>
 
 ## Graph Partitioning - Kernighan-Lin 
+<p align= "center">
 <img src="readme_img/kl.png" width="300" height="300" alt="KL" class="center" /><br/><br/>
+</p>
 The Kernighan-Lin (KL) algorithm takes an undirected graph as input and partitions the vertices into two disjoint subsets A,B of equal(or nearly equal) size, in a way that minimizes the sum of the weights of the subsets of edges that cross from A,B.
 
 
