@@ -9,7 +9,7 @@ Implementation of the term project for the course M2177.003000 Advanced Data Min
 
 ## Environment Setup
 > Note: This code was developed on Ubuntu 20.04 with Python 3.5. Later versions should work, but have not been tested.<br/>
-Create and activate a virtual environment to work in, e.g. using Conda: <br/>
+> Create and activate a virtual environment to work in, e.g. using Conda: <br/>
 
 ```
 conda create -n venv_graph python=3.5
