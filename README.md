@@ -80,6 +80,8 @@ The Kernighan-Lin (KL) algorithm takes an undirected graph as input and partitio
 ```
 python baseline_tests/Kl_partitioning/kl.py --input data/custom/sample_data.txt  
 ```
+Partitioned graph will be in the form of a `.json` file which can be found in  `output` folder. <br/>
+
 ### Algorithm
 <p align= "center">
 <img src="readme_img/algo_label.png" width="750" height="300" alt="Clustering" class="center"/><br/><br/>
