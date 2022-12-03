@@ -53,3 +53,4 @@ for i in tqdm(range(len(data_read))):
 # Save File 
 with open(args.output_dir, "w") as text_file:
     text_file.write(string)
+
