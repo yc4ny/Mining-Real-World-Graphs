@@ -30,7 +30,7 @@ texttable         1.6.7
 pip install -r requirements.txt
 ```
 ## Datasets
-The code takes an input graph in a csv/txt file. Each row of the file indicates an edge between the two nodes separated by a comma.<br/>
+The code takes an input graph in a csv/txt file. Each row of the file indicates an edge between the two nodes separated by a comma.<br/><br/>
 For lightly testing there are custom test graphs in the  ` data/custom ` folder.
 
 ## Options
