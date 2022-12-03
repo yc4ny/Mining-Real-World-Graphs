@@ -42,7 +42,8 @@ To partition other graphs, please match the format of the input graph as stated 
 
 ### Options
 
-Clustering the input graph is done by the `label_propagation/label_propagation.py` script which provides the following command line arguments.
+Clustering the input graph is done by the `label_propagation/label_propagation.py` script which provides the following command line arguments. <br/>
+The Label Propagation algorithm is a fast algorithm for finding communities in a graph, while detecting these communites using the network structure alone as its guide and does not require a pre-defined objective function or prior informations about the communities. 
 
 #### Model options
 
