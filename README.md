@@ -2,15 +2,9 @@
 Implementation of the term project for the course M2177.003000 Advanced Data Mining Course at SNU.<br/> 
 
 ![Real World Graph Partitioning](readme_img/intro.png)<br/>
-> - Red points indicate the 2D reprojection of the reconstructed 3D points. <br/>
-> - Green points indicate the 2D points found by MATLAB's Camera Calibrator.<br/> 
-> - The "ON" sign in green indicates that the checkerboard points have been detected with MATLAB's calibrator. There must be at least 2 cameras with "ON" sign in order to reconstruct 3D points.<br/> 
-> - The "Frame Error" indicates the average reprojection error (Euclidean distance) of points of the reconstructed 3D points. <br/>
+> - Left image shows a poor partitioned graph. There are many inter-partition links <br/>
+> - Write Image shows a good partitoned graph. Vertices that are highly connected are assigned to the same partition.<br/>
 
-![Stereo Reconstruction Final Results](readme_img/good_partitioning.png)<br/><br/> 
-> - Green joints indicate the 2D reprojection of the reconstructed 3D joints. <br/>
-> - Orange joints indicate the 2D joints found by openpose.<br/> 
-> - The "Frame Reprojection Error" indicates the average reprojection error (Euclidean distance) of points of the reconstructed 3D joints. <br/>
 
 ## Environment Setup
 > Note: This code was developed on Ubuntu 20.04/22.04 with Python 3.7. Later versions should work, but have not been tested.
