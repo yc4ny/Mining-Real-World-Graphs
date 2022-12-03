@@ -71,7 +71,7 @@ The Kernighan-Lin (KL) algorithm takes an undirected graph as input and partitio
   --input               STR    Input graph path. 
   --assignment-output   STR    Partitioned graph path.                                             
 ```
-#### Example for running label propagation on the sample data
+#### Example for running KL on the sample data
 ```
 python baseline_tests/Kl_partitioning/kl.py --input data/custom/sample_data.txt  
 ```
