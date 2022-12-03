@@ -8,13 +8,23 @@ Implementation of the term project for the course M2177.003000 Advanced Data Min
 
 
 ## Environment Setup
-> Note: This code was developed on Ubuntu 20.04 with Python 3.7. Later versions should work, but have not been tested.
-Create and activate a virtual environment to work in, e.g. using Conda:
+> Note: This code was developed on Ubuntu 20.04 with Python 3.5. Later versions should work, but have not been tested.
+Create and activate a virtual environment to work in, e.g. using Conda: <br>
 
-```
-conda create -n venv_graph python=3.7
+conda create -n venv_graph python=3.5
 conda activate venv_graph
+
+The codebase is implemented in Python 3.5.2 | Anaconda 4.2.0 (64-bit). Package versions used for development are just below.
 ```
+networkx          2.4
+tqdm              4.28.1
+numpy             1.15.4
+pandas            0.23.4
+jsonschema        2.6.0
+python-louvain    0.11
+texttable         0.15.0
+```
+
 Install the remaining requirements with pip:
 ```
 pip install -r requirements.txt

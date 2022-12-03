@@ -156,7 +156,7 @@ class KernighanLin():
         print ("Total passes: " + str(p) + "\t\tTotal gain: " + str(total_gain) + "\t\tFinal partition cost: " + str(self.graph.get_partition_cost()) )
         
 def main():
-    graph = load_data("data/sample_data.txt")
+    graph = load_data("data/custom/sample_data.txt")
     kl = KernighanLin(graph)
     kl.partition()
 

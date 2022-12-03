@@ -1,0 +1,5 @@
+networkx
+tqdm
+python-louvain==0.11
+pandas
+texttable
