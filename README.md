@@ -58,7 +58,7 @@ python label_propagation/label_propagation.py --input data/custom/sample_data.tx
 Detected communities will be in the form of a `.json` file which can be found in  `output` folder. 
 
 ## Graph Partitioning - Kernighan-Lin 
-<img src="readme_img/kl.png" width="300" height="300" alt="Clustering" /><br/><br/>
+<img src="readme_img/kl.png" width="300" height="300" alt="KL" /><br/><br/>
 The Kernighan-Lin(KL) algorithm takes an undirected graph as input and partitions the vertices into two disjoint subsets A,B of equal(or nearly equal) size, in a way that minimizes the sum of the weights of the subsets of edges that cross from A,B.
 
 
