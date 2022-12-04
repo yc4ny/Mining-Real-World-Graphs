@@ -1,5 +1,4 @@
 # Implementation of Kernighan-Lin graph partitioning algorithm
-# Based on the paper: An Efficient Heuristic Procedure for Partitioning Graphs (https://ieeexplore.ieee.org/document/6771089)
 import argparse
 import json
 import time
@@ -10,13 +9,12 @@ parser.add_argument('--output', type = str, default = 'output_final/partitioned_
 args = parser.parse_args()
 
 class Vertex:
-    # id, edges, partition_label
     def __init__(self, id):
         self.id = id
         self.edges = []
     
     def get_D_value(self):
-        D_value = 0 # D = E - I
+        D_value = 0
         
         for edge in self.edges:
             if edge.left_id == self.id:
@@ -25,14 +23,13 @@ class Vertex:
                 other_v = edge.left_v
             
             if other_v.partition_label != self.partition_label:
-                D_value += 1 # external cost
+                D_value += 1
             else:
-                D_value -= 1 # internal cost
+                D_value -= 1
         
         return D_value
     
     def add_edge(self, edge):
-        # undirected graph, ignore reverse direction
         for present_edge in self.edges:        
             if present_edge.left_id == edge.right_id and present_edge.right_id == edge.left_id:
                 return
@@ -40,18 +37,15 @@ class Vertex:
         self.edges.append(edge)
               
 class Edge:
-    # left_id, right_id, left_v, right_v
     def __init__(self, left_id, right_id):
         self.left_id = left_id
         self.right_id = right_id
         
 class Graph:
-    # vertices, edges
     def __init__(self, vertices, edges):
         self.vertices = vertices
         self.edges = edges
         
-        # connect vertices and edges
         vertex_dict = {v.id: v for v in self.vertices}
         
         for edge in self.edges:
@@ -76,17 +70,15 @@ class KernighanLin():
         self.graph = graph
     
     def partition(self):
-        # initial partition: first half is group A, second half is B
         for i in range(int(len(self.graph.vertices)/2)):
             self.graph.vertices[i].partition_label = "A"
         for i in range(int(len(self.graph.vertices)/2), int(len(self.graph.vertices))):
             self.graph.vertices[i].partition_label = "B"
         
         print ("Initial partition cost: " + str(self.graph.get_partition_cost()))
-        p = 0 # pass
+        p = 0
         total_gain = 0
        
-        # repeat until g_max <= 0
         while True:
             group_a = []
             group_b = []
@@ -98,13 +90,10 @@ class KernighanLin():
                     group_b.append(self.graph.vertices[i])
         
             D_values = {v.id: v.get_D_value() for v in self.graph.vertices}
-            gains = [] # [ ([a, b], gain), ... ]
+            gains = []
         
-            # while there are unvisited vertices
             for _ in range(int(len(self.graph.vertices)/2)): 
-            
-                # choose a pair that maximizes gain 
-                max_gain = -1 * float("inf") # -infinity
+                max_gain = -1 * float("inf")
                 pair = []
             
                 for a in group_a:
@@ -115,15 +104,12 @@ class KernighanLin():
                         if gain > max_gain:
                             max_gain = gain
                             pair = [a, b] 
-            
-                # mark that pair as visited
                 a = pair[0]
                 b = pair[1]
                 group_a.remove(a)
                 group_b.remove(b)
                 gains.append([[a, b], max_gain])
-        
-                # update D_values of other unvisited nodes connected to a and b, as if a and b are swapped
+    
                 for x in group_a:
                     c_xa = len(set(x.edges).intersection(a.edges))
                     c_xb = len(set(x.edges).intersection(b.edges))
@@ -133,8 +119,7 @@ class KernighanLin():
                     c_yb = len(set(y.edges).intersection(b.edges))
                     c_ya = len(set(y.edges).intersection(a.edges))
                     D_values[y.id] += 2 * (c_yb) - 2 * (c_ya)
-        
-            # find j that maximizes the sum g_max
+    
             g_max = -1 * float("inf")
             jmax = 0
             for j in range(1, len(gains) + 1):
@@ -147,9 +132,7 @@ class KernighanLin():
                     jmax = j
         
             if g_max > 0:
-                # swap in graph
                 for i in range(jmax):
-                    # find vertices and change their partition_label
                     for v in self.graph.vertices:
                         if v.id == gains[i][0][0].id:
                             v.partition_label = "B"
