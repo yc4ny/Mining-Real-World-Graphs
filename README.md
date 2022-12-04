@@ -38,7 +38,7 @@ pip install -r requirements.txt
 ## Datasets
 
 <b>Format:</b><br/>
-The code takes an input graph in a csv/txt file. Each row of the file indicates an edge between the two nodes separated by a comma.<br/><br/>
+The code takes an input graph in a csv file. Each row of the file indicates an edge between the two nodes separated by a comma.<br/><br/>
 For small sample tests. there are custom test graphs in the  `data/custom` folder. <br/><br/>
 If you wish to test on real world graphs, please download the network data from Stanford Large Network Dataset Collection here: <a href="https://snap.stanford.edu/data/" target="_blank">SNAP</a>, unzip and place the csv files in the ` data/`  folder.  <br/><br/>
 To partition other graphs, please match the format of the input graph as stated above.
