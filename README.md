@@ -86,6 +86,10 @@ Once you sucessfully downloaded and unzips dataset files, you should have a dire
 ```
 python demo.py --input datasets/git_web_ml/musae_git_edges.csv
 ```
+I have also included a Makefile, just modify the input path and run:
+```
+make
+```
 
 ## Community Detection - Label Propagation
 
