@@ -139,17 +139,17 @@ The Kernighan-Lin (KL) algorithm takes an undirected graph as input and partitio
 #### Model options
 
 ```
-  --input_dir    STR    Input graph path. 
-  --output_dir   STR    Partitioned graph path.                                           
+  --input    STR    Input graph path. 
+  --output   STR    Partitioned graph path.                                           
 ```
 
-#### Example for running KL on the sample data
+#### Example for running KL on the Github graph
 
 ```
-python baseline_tests/Kl_partitioning/kl.py --input data/custom/sample_data.txt  
+python baseline/kl_partitioning/kl.py --input dataset/git_web_ml/musae_git_edges.csv
 ```
 
-Partitioned graph will be in the form of a `.json` file which can be found in  `output` folder. <br/>
+Partitioned graph will be in the form of a `.txt` file which can be found in  `outputs/output_KL` folder. <br/>
 
 ### Algorithm
 
