@@ -80,7 +80,7 @@ The Label Propagation algorithm is a fast algorithm for finding communities in a
 ### Algorithm
 
 <p align= "center">
-<img src="img/algo_label.png" width="750" height="300" alt="community_detection_algorithm" class="center"/><br/><br/>
+<img src="img/algo_label.png" width="720" height="300" alt="community_detection_algorithm" class="center"/><br/><br/>
 </p>
 
 ### Options
