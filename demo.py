@@ -13,11 +13,11 @@ if __name__ == "__main__":
     start_time = time.time()
     # Parse command line arguments  
     parser = argparse.ArgumentParser(description = "Demofile ArgsParser")
-    parser.add_argument('--input', type = str, default = 'datasets/facebook_clean_data/artist_edges.csv', help = 'output from community detection')
+    parser.add_argument('--input', type = str, default = 'datasets/git_web_ml/musae_git_edges.csv', help = 'output from community detection')
     args = parser.parse_args()
 
     # Get the graph name for future saving purposes
-    filename = getGraphName(args.input) #artist_edges
+    filename = getGraphName(args.input)
 
     # Run the full pipeline
 
@@ -41,10 +41,10 @@ if __name__ == "__main__":
     print("\n")
 
     # Step 3: Uncoarsen graph to original form
-    print("--------Step 2: Running KL graph partitioning algorithm--------")
-    subprocess.run()
+    print("--------Step 3: Uncoarsen the graph to produced the final output--------")
+    subprocess.run(["python", "uncoarsen/uncoarsen.py", "--LP", "outputs/output_LP/" + filename + ".json", "--KL", "outputs/output_KL/partitioned_" + filename + ".txt", "--output", "outputs/output_uncoarsened/uncoarsened_" + filename + ".json",])
     print("\n")
-    
+
     print("--------Total Running Time: %s seconds--------" % (time.time() - start_time))
     print("\n")
-    print("--------Partitioned Graph is saved in outputs/output_KL/partitioned_" + filename + ".txt--------")
+    print("-------- Partitioned Graph is saved in outputs/output_uncoarsened/uncoarsened_" + filename + ".json   --------")
