@@ -2,8 +2,11 @@
 # Based on the paper: An Efficient Heuristic Procedure for Partitioning Graphs (https://ieeexplore.ieee.org/document/6771089)
 import argparse
 import json
-parser = argparse.ArgumentParser(description = "Age Classification")
-parser.add_argument('--input', type = str, default = 'data/custom/sample_data.txt', help = 'input graph')
+import time
+
+parser = argparse.ArgumentParser(description = "Kernighan-Lin Argument Parser")
+parser.add_argument('--input', type = str, default = 'data/custom/sample_data.txt', help = ' directory of input graph')
+parser.add_argument('--output', type = str, default = 'output_final/partitioned_sample_data.txt', help = 'output directory of partitioned graph')
 args = parser.parse_args()
 
 class Vertex:
@@ -159,7 +162,7 @@ class KernighanLin():
             else: break
             
         print ("Total passes: " + str(p) + "\t\tTotal gain: " + str(total_gain) + "\t\tFinal partition cost: " + str(self.graph.get_partition_cost()) )
-        print("Saving Partitioned Graph into a json file...")
+        print("Saving partitioned graph into a txt file...")
         A = []
         B = []
         for i in range(len(self.graph.vertices)):
@@ -167,8 +170,16 @@ class KernighanLin():
                 A.append(self.graph.vertices[i].id)
             elif self.graph.vertices[i].partition_label == 'B':
                 B.append(self.graph.vertices[i].id)
-        print(A)
-        print(B)
+        A_str = ""
+        for i in range(len(A)):
+            A_str += str(A[i]) + ", " + "A" + "\n"
+        B_str = ""
+        for i in range(len(B)):
+            B_str += str(B[i]) + ", " + "B" + "\n"
+
+        with open(args.output, "w") as text_file:
+            text_file.write(A_str)
+            text_file.write(B_str)
 
 
 def main():
@@ -201,4 +212,7 @@ def load_data(filename):
     return Graph(vertices, edges)
     
 if __name__ == "__main__":
+    print("Running Kernighan-Lin Algorithm... \n")
+    start_time = time.time()
     main()
+    print("--- Running time of KL Algorithm: %s seconds ---" % (time.time() - start_time))
