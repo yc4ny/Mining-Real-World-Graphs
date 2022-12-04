@@ -72,8 +72,8 @@ Once you sucessfully downloaded and unzips dataset files, you should have a dire
 #### Steps
 <ol>
 <li>Label Propagation is run on the input graph for community detection (clustering).</li>
-<li>The output `.json` of label propagation is preprocessed to produce a `.txt` file which follows the format stated above.</li>
-<li>KL partitioning algorithm is run on the preprocessed file to produce a `.txt` file, with each line indicating the node along with a partitioning group 'A' or 'B'.</li>
+<li>The output of label propagation is preprocessed to produce a text file which follows the format stated above.</li>
+<li>KL partitioning algorithm is run on the preprocessed file to produce a text file, with each line indicating the node along with a partitioning group 'A' or 'B'.</li>
 <li>Uncoarsening is ran on the partitioned graph to recover the original nodes before community detection.</li>
 </ol>
 
