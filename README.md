@@ -127,7 +127,7 @@ Detected communities will be in the form of a `.json` file which can be found in
 
 #### Running Baseline Community Detection Algorithms
 
-Other community detection algorithms such as the  <a href="https://en.wikipedia.org/wiki/Girvan%E2%80%93Newman_algorithm" target="_blank">Girvan Newman</a>, and the <a href="https://en.wikipedia.org/wiki/Louvain_method" target="_blank">Louvain</a> algorithm can be found in `baseline_tests/communitydetection` folder. Update the `test.py` according to the algorithm you wish to test, and run the file.
+Other community detection algorithms such as the  <a href="https://en.wikipedia.org/wiki/Girvan%E2%80%93Newman_algorithm" target="_blank">Girvan Newman</a>, and the <a href="https://en.wikipedia.org/wiki/Louvain_method" target="_blank">Louvain</a> algorithm can be found in `baseline/community_detection` folder. Update the `test.py` according to the algorithm you wish to test, and run the file.
 
 ## Graph Partitioning - Kernighan-Lin
 
