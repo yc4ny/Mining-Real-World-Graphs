@@ -3,7 +3,7 @@
 Implementation of the term project for the course M2177.003000 Advanced Data Mining Course at SNU.<br/>
 
 <p align= "center">
-<img src="img/graph_partitioning.png" width="750" height="350" alt="pipeline" class="center"/><br/><br/>
+<img src="img/graph_partitioning.png" width="650" height="320" alt="pipeline" class="center"/><br/><br/>
 </p>
 
 > - Left image indicates a poor partitioned graph. There are many inter-partition links <br/>
