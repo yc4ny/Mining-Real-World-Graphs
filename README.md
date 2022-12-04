@@ -64,22 +64,23 @@ Once you sucessfully downloaded and unzips dataset files, you should have a dire
         └── musae_git_edges.csv
    ```
 ## Full pipeline
+### Diagram of the pipeline of our project
 <p align= "center">
-<img src="img/full_pipeline.png" width="750" height="300" alt="Clustering" class="center"/><br/><br/>
+<img src="img/full_pipeline.png" width="750" height="300" alt="pipeline" class="center"/><br/><br/>
 </p>
 
 
 ## Community Detection - Label Propagation
 
 <p align= "center">
-<img src="img/cluster.png" width="300" height="300" alt="Clustering" class="center"/><br/><br/>
+<img src="img/cluster.png" width="300" height="300" alt="community detection" class="center"/><br/><br/>
 </p>
 The Label Propagation algorithm is a fast algorithm for finding communities in a graph, while detecting these communites using the network structure alone as its guide and does not require a pre-defined objective function or prior informations about the communities. The quality of community detection is determined with the modularity value.
 
 ### Algorithm
 
 <p align= "center">
-<img src="img/algo_label.png" width="750" height="300" alt="Clustering" class="center"/><br/><br/>
+<img src="img/algo_label.png" width="750" height="300" alt="community_detection_algorithm" class="center"/><br/><br/>
 </p>
 
 ### Options
@@ -109,7 +110,7 @@ Other community detection algorithms such as the  <a href="https://en.wikipedia.
 ## Graph Partitioning - Kernighan-Lin
 
 <p align= "center">
-<img src="img/kl.png" width="400" height="300" alt="KL" class="center" /><br/><br/>
+<img src="img/kl.png" width="400" height="300" alt="KL" class="KL" /><br/><br/>
 </p>
 The Kernighan-Lin (KL) algorithm takes an undirected graph as input and partitions the vertices into two disjoint subsets A,B of equal(or nearly equal) size, in a way that minimizes the sum of the weights of the subsets of edges that cross from A,B.
 
@@ -131,5 +132,5 @@ Partitioned graph will be in the form of a `.json` file which can be found in  `
 ### Algorithm
 
 <p align= "center">
-<img src="img/algo_label.png" width="750" height="300" alt="Clustering" class="center"/><br/><br/>
+<img src="img/algo_label.png" width="750" height="300" alt="KL_algorithm" class="center"/><br/><br/>
 </p>
