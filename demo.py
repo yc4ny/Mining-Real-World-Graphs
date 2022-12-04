@@ -41,8 +41,10 @@ if __name__ == "__main__":
     print("\n")
 
     # Step 3: Uncoarsen graph to original form
-    
+    print("--------Step 2: Running KL graph partitioning algorithm--------")
+    subprocess.run()
     print("\n")
+    
     print("--------Total Running Time: %s seconds--------" % (time.time() - start_time))
     print("\n")
     print("--------Partitioned Graph is saved in outputs/output_KL/partitioned_" + filename + ".txt--------")
