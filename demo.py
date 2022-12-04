@@ -48,4 +48,4 @@ if __name__ == "__main__":
 
     print("--------Total Running Time: %s seconds--------" % (time.time() - start_time))
     print("\n")
-    print("-------- Partitioned Graph is saved in outputs/output_uncoarsened/uncoarsened_" + filename + ".json   --------")
+    print("-------- Partitioned Graph is saved in: outputs/output_uncoarsened/uncoarsened_" + filename + ".json   --------")
