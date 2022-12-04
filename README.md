@@ -42,15 +42,23 @@ The code takes an input graph in a csv file. Each row of the file indicates an e
 For small sample tests. there are custom test graphs in the  `dataset/custom` folder. <br/><br/>
 If you wish to test on real world graphs, please download the network data from Stanford Large Network Dataset Collection here: <a href="https://snap.stanford.edu/data/" target="_blank">SNAP</a>, unzip and place the csv files in the ` dataset/`  folder.  <br/><br/>
 To partition other graphs, please match the format of the input graph as stated above.<br/><br/>
-The `dataset` directory should look something to this (eg. with the facebook dataset, github dataset):
+
+### Folder Hierarchy
+Once you sucessfully downloaded and unzips dataset files, you should have a directory similar to this:
    ```
-   dataset
-    └-- facebook_clean_data
-    	└-- artist_edges.csv
-      └-- athletes_edges.csv
-      └-- company_edges.csv
-    └-- git_web_ml
-      └-- musae_git_edges.csv
+    ./dataset/
+    ├── custom
+    │   └── sample_data.csv
+    │   └── test_1.csv
+    |   └── test_2.csv
+    │   └── hand_detector
+    ├── facebook_clean_data
+    |   └──artist_edges.csv  
+    |   └──athletes_edges.csv  
+    |   └──company_edges.csv  
+    |   └──government_edges.csv  
+    └── git_web_ml
+        └── musae_git_edges.csv
    ```
 ## Community Detection - Label Propagation
 
