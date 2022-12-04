@@ -81,7 +81,7 @@ Once you sucessfully downloaded and unzips dataset files, you should have a dire
 ```
   --input               STR    Input graph path.                                    
 ```
-#### Example for running the full pipeline on an input graph
+#### Example for running the full pipeline on the Github graph 
 
 ```
 python demo.py --input datasets/git_web_ml/musae_git_edges.csv
@@ -117,13 +117,13 @@ Clustering the input graph is done by the `label_propagation.py` script which pr
   --rounds              INT    Number of iterations.    
 ```
 
-#### Example for running label propagation on the sample data
+#### Example for running label propagation on the Github graph
 
 ```
-python label_propagation/label_propagation.py --input data/custom/sample_data.txt --assignment-output output/sample_data.json --rounds 20
+python label_propagation/label_propagation.py --input dataset/git_web_ml/musae_git_edges.csv --output outputs/output_LP/musae_git_edges.json --rounds 30
 ```
 
-Detected communities will be in the form of a `.json` file which can be found in  `output` folder. <br/>
+Detected communities will be in the form of a `.json` file which can be found in  `outputs/output_LP` folder. <br/>
 
 #### Running Baseline Community Detection Algorithms
 
