@@ -51,7 +51,7 @@ The `dataset` directory should look something to this (eg. with the facebook dat
       └-- company_edges.csv
                 .
                 .
-└-- git_web_ml
+  └-- git_web_ml
       └-- musae_git_edges.csv
    ```
 ## Community Detection - Label Propagation
