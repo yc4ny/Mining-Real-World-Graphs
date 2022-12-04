@@ -109,8 +109,6 @@ The Label Propagation algorithm is a fast algorithm for finding communities in a
 <img src="img/algo_label.png" width="750" height="300" alt="community_detection_algorithm" class="center"/><br/><br/>
 </p>
 
-### Options
-
 Clustering the input graph is done by the `label_propagation.py` script which provides the following command line arguments. <br/>
 
 #### Model options
