@@ -1,6 +1,7 @@
 # Implementation of Kernighan-Lin graph partitioning algorithm
 # Based on the paper: An Efficient Heuristic Procedure for Partitioning Graphs (https://ieeexplore.ieee.org/document/6771089)
 import argparse
+import json
 parser = argparse.ArgumentParser(description = "Age Classification")
 parser.add_argument('--input', type = str, default = 'data/custom/sample_data.txt', help = 'input graph')
 args = parser.parse_args()
@@ -158,7 +159,18 @@ class KernighanLin():
             else: break
             
         print ("Total passes: " + str(p) + "\t\tTotal gain: " + str(total_gain) + "\t\tFinal partition cost: " + str(self.graph.get_partition_cost()) )
-        
+        print("Saving Partitioned Graph into a json file...")
+        A = []
+        B = []
+        for i in range(len(self.graph.vertices)):
+            if self.graph.vertices[i].partition_label == 'A':
+                A.append(self.graph.vertices[i].id)
+            elif self.graph.vertices[i].partition_label == 'B':
+                B.append(self.graph.vertices[i].id)
+        print(A)
+        print(B)
+
+
 def main():
     graph = load_data(args.input)
     kl = KernighanLin(graph)
