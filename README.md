@@ -138,7 +138,7 @@ Other community detection algorithms such as the  <a href="https://en.wikipedia.
 <p align= "center">
 <img src="img/kl.png" width="400" height="300" alt="KL" class="KL" /><br/><br/>
 </p>
-The Kernighan-Lin (KL) algorithm takes an undirected graph as input and partitions the vertices into two disjoint subsets A,B of equal(or nearly equal) size, in a way that minimizes the sum of the weights of the subsets of edges that cross from A,B.
+The <a href="https://en.wikipedia.org/wiki/Kernighan%E2%80%93Lin_algorithm" target="_blank">Kernighan-Lin (KL)</a>, algorithm takes an undirected graph as input and partitions the vertices into two disjoint subsets A,B of equal(or nearly equal) size, in a way that minimizes the sum of the weights of the subsets of edges that cross from A,B.
 
 #### Model options
 
