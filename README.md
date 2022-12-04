@@ -2,7 +2,9 @@
 
 Implementation of the term project for the course M2177.003000 Advanced Data Mining Course at SNU.<br/>
 
-![Real World Graph Partitioning](img/intro.png)<br/>
+<p align= "center">
+<img src="img/full_pipeline.png" width="750" height="300" alt="pipeline" class="center"/><br/><br/>
+</p>
 
 > - Left image indicates a poor partitioned graph. There are many inter-partition links <br/>
 > - Right image indicates a good partitoned graph. Vertices that are highly connected are assigned to the same partition.<br/>
