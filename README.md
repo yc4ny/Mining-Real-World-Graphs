@@ -41,8 +41,19 @@ pip install -r requirements.txt
 The code takes an input graph in a csv file. Each row of the file indicates an edge between the two nodes separated by a comma.<br/><br/>
 For small sample tests. there are custom test graphs in the  `data/custom` folder. <br/><br/>
 If you wish to test on real world graphs, please download the network data from Stanford Large Network Dataset Collection here: <a href="https://snap.stanford.edu/data/" target="_blank">SNAP</a>, unzip and place the csv files in the ` data/`  folder.  <br/><br/>
-To partition other graphs, please match the format of the input graph as stated above.
-
+To partition other graphs, please match the format of the input graph as stated above.<br/><br/>
+The datasets directory should look something to this (eg. with the facebook dataset, github dataset):
+   ```
+   datasets
+    └-- facebook_clean_data
+    	└-- artist_edges.csv
+      └-- athletes_edges.csv
+      └-- company_edges.csv
+                .
+                .
+		└-- git_web_ml
+      └-- datasets/git_web_ml/musae_git_edges.csv
+   ```
 ## Community Detection - Label Propagation
 
 <p align= "center">
