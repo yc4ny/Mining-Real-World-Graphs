@@ -9,7 +9,7 @@ Implementation of the term project for the course M2177.003000 Advanced Data Min
 > - Our method aims to reduce the number of vertex-cuts in the final partitioned graph.
 
 ## Environment Setup
-> Clone the respository
+> Clone the respository:
 ```
 git clone https://github.com/yc4ny/Graph-Partitioning.git
 ```
@@ -38,7 +38,7 @@ texttable         1.6.7
 pip install -r requirements.txt
 ```
 
-## Datasets
+## Data Preparation
 
 ### Format
 The code takes an input graph in a csv file. Each row of the file indicates an edge between the two nodes separated by a comma.<br/><br/>
@@ -63,6 +63,9 @@ Once you sucessfully downloaded and unzips dataset files, you should have a dire
     └── git_web_ml
         └── musae_git_edges.csv
    ```
+## Full pipeline
+
+
 ## Community Detection - Label Propagation
 
 <p align= "center">
