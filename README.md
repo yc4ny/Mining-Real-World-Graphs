@@ -64,7 +64,7 @@ Once you sucessfully downloaded and unzips dataset files, you should have a dire
         └── musae_git_edges.csv
    ```
 ## Full pipeline
-### Diagram of the pipeline of our project
+### Diagram of the pipeline
 <p align= "center">
 <img src="img/full_pipeline.png" width="750" height="300" alt="pipeline" class="center"/><br/><br/>
 </p>
