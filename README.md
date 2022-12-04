@@ -54,7 +54,7 @@ Once you sucessfully downloaded and unzips dataset files, you should have a dire
     │   └── sample_data.csv
     │   └── test_1.csv
     |   └── test_2.csv
-    │   └── hand_detector
+    │   └── test_3.csv
     ├── facebook_clean_data
     |   └──artist_edges.csv  
     |   └──athletes_edges.csv  
