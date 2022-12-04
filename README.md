@@ -77,6 +77,16 @@ Once you sucessfully downloaded and unzips dataset files, you should have a dire
 <li>Uncoarsening is ran on the partitioned graph to recover the original nodes before community detection.</li>
 </ol>
 
+#### Model options
+```
+  --input               STR    Input graph path.                                    
+```
+#### Example for running the full pipeline on an input graph
+
+```
+python demo.py --input datasets/git_web_ml/musae_git_edges.csv
+```
+
 ## Community Detection - Label Propagation
 
 <p align= "center">
