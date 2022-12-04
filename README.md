@@ -114,7 +114,7 @@ Other community detection algorithms such as the  <a href="https://en.wikipedia.
 </p>
 The Kernighan-Lin (KL) algorithm takes an undirected graph as input and partitions the vertices into two disjoint subsets A,B of equal(or nearly equal) size, in a way that minimizes the sum of the weights of the subsets of edges that cross from A,B.
 
-### Model options
+#### Model options
 
 ```
   --input_dir    STR    Input graph path. 
