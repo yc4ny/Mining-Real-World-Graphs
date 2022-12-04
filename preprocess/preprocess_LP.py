@@ -49,7 +49,6 @@ for i in tqdm(range(len(data_read))):
     if a == b:
         continue
     string += (str(a) + "," + str(b) + "\n")
-
 # Save File 
 with open(args.output, "w") as text_file:
     text_file.write(string)
