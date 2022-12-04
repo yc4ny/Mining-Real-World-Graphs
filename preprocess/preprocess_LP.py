@@ -4,10 +4,10 @@ from tqdm import tqdm
 import argparse
 import time 
 
-parser = argparse.ArgumentParser(description = "Age Classification")
-parser.add_argument('--input_dir', type = str, default = 'output/sample_data.json', help = 'output from community detection')
+parser = argparse.ArgumentParser(description = "Preprocess ArgsParser")
+parser.add_argument('--input', type = str, default = 'output/sample_data.json', help = 'output from community detection')
 parser.add_argument('--original_edges', type = str, default = 'data/custom/sample_data.csv', help = 'original input with all edges')
-parser.add_argument('--output_dir', type = str, default = 'data/processed_communityDetection/processed_sample_data.txt', help = 'processed data, ready for KL algorithm')
+parser.add_argument('--output', type = str, default = 'data/processed_communityDetection/processed_sample_data.txt', help = 'processed data, ready for KL algorithm')
 args = parser.parse_args()
 
 # function to return key for any value
@@ -19,7 +19,7 @@ def get_key(dic, val):
     return "key doesn't exist"
 
 # Load Community Detection Output
-with open(args.input_dir, 'r') as f:   
+with open(args.input, 'r') as f:   
     # Key: Node #
     # Value: Community #
     json_data = json.load(f)
@@ -51,6 +51,6 @@ for i in tqdm(range(len(data_read))):
     string += (str(a) + "," + str(b) + "\n")
 
 # Save File 
-with open(args.output_dir, "w") as text_file:
+with open(args.output, "w") as text_file:
     text_file.write(string)
 

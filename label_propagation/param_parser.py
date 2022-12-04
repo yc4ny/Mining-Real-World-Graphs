@@ -11,13 +11,13 @@ def parameter_parser():
 
     parser.add_argument("--input",
                         nargs="?",
-                        default="data/custom/test_1.csv",
+                        default="datasets/facebook_clean_data/artist_edges.csv",
 	                help="Input graph path.")
 
-    parser.add_argument("--assignment-output",
+    parser.add_argument("--output",
                         nargs="?",
-                        default="./output/test_1.json",
-	                help="Assignment path.")
+                        default="outputs/output_LP /artist.json",
+	                help="Output path.")
 
     parser.add_argument("--weighting",
                         nargs="?",
@@ -26,12 +26,12 @@ def parameter_parser():
 
     parser.add_argument("--rounds",
                         type=int,
-                        default=30,
-	                help="Number of iterations. Default is 30.")
+                        default=50,
+	                help="Number of iterations.")
 
     parser.add_argument("--seed",
                         type=int,
-                        default=42,
-	                help="Random seed. Default is 42.")
+                        default=50,
+	                help="Random seed.")
 
     return parser.parse_args()

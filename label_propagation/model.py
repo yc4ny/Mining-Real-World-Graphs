@@ -84,4 +84,4 @@ class LabelPropagator:
             self.do_a_propagation()
         print("")
         print("Modularity is: " + str(round(modularity(self.labels, self.graph), 3)) + ".\n")
-        json_dumper(self.labels, self.args.assignment_output)
+        json_dumper(self.labels, self.args.output)
