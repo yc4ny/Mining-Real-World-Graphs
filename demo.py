@@ -10,6 +10,7 @@ def getGraphName(input_directory):
     return filename
 
 if __name__ == "__main__":
+    
     start_time = time.time()
     # Parse command line arguments  
     parser = argparse.ArgumentParser(description = "Demofile ArgsParser")
