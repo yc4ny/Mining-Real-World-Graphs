@@ -145,7 +145,6 @@ class KernighanLin():
             else: break
             
         print ("Total passes: " + str(p) + "\t\tTotal gain: " + str(total_gain) + "\t\tFinal partition cost: " + str(self.graph.get_partition_cost()) )
-        print("Saving partitioned graph into a txt file...")
         A = []
         B = []
         for i in range(len(self.graph.vertices)):
@@ -195,7 +194,4 @@ def load_data(filename):
     return Graph(vertices, edges)
     
 if __name__ == "__main__":
-    print("Running Kernighan-Lin Algorithm... \n")
-    start_time = time.time()
     main()
-    print("--- Running time of KL Algorithm: %s seconds ---" % (time.time() - start_time))
