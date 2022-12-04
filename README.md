@@ -107,13 +107,13 @@ The Label Propagation algorithm is a fast algorithm for finding communities in a
 
 ### Options
 
-Clustering the input graph is done by the `label_propagation/label_propagation.py` script which provides the following command line arguments. <br/>
+Clustering the input graph is done by the `label_propagation.py` script which provides the following command line arguments. <br/>
 
 #### Model options
 
 ```
   --input               STR    Input graph path.                                   
-  --assignment-output   STR    Node-cluster assignment path.                   
+  --output              STR    Output communities path.                   
   --rounds              INT    Number of iterations.    
 ```
 
