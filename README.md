@@ -94,7 +94,7 @@ I have also included a Makefile for compilation, just modify the input path and 
 ```
 make
 ```
-For those wishing to run only `Label Propagation` and the `KL algorithm`, please follow the instructions on `Community Detection - Label Propagation` and `Graph Partitioning - Kernighan-Lin` section of this README. 
+For those wishing to run only `Label Propagation` and the `KL algorithm`, please follow the instructions on <a href="https://github.com/yc4ny/Graph-Partitioning#community-detection---label-propagation" target="_blank">Community Detection - Label Propagation</a> and <a href="https://github.com/yc4ny/Graph-Partitioning#graph-partitioning---kernighan-lin" target="_blank">Graph Partitioning - Kernighan-Lin</a> section of this README. 
 
 ## Community Detection - Label Propagation
 
