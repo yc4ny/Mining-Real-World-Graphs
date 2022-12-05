@@ -155,5 +155,5 @@ Partitioned graph will be in the form of a `.txt` file which can be found in  `o
 
 ### Algorithm
 <p align= "center">
-<img src="img/kl_algo.png" width="750" height="300" alt="KL" class="KL" /><br/><br/>
+<img src="img/kl_algo.png" width="750" height="350" alt="KL" class="KL" /><br/><br/>
 </p>
