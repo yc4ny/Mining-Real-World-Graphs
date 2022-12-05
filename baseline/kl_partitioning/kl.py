@@ -194,4 +194,6 @@ def load_data(filename):
     return Graph(vertices, edges)
     
 if __name__ == "__main__":
+    start_time = time.time()
     main()
+    print("--------Total Running Time: %s seconds--------" % (time.time() - start_time))
