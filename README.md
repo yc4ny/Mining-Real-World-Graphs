@@ -154,4 +154,6 @@ python baseline/kl_partitioning/kl.py --input dataset/git_web_ml/musae_git_edges
 Partitioned graph will be in the form of a `.txt` file which can be found in  `outputs/output_KL` folder. <br/>
 
 ### Algorithm
-
+<p align= "center">
+<img src="img/kl_algo.png" width="750" height="300" alt="KL" class="KL" /><br/><br/>
+</p>
