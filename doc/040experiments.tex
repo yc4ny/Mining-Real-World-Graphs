@@ -1,0 +1,255 @@
+
+In this section, we experimentally evaluate our algorithms and compare them to recent multilevel graph partitioning algorithms.
+We design experiments to answer the following questions:
+\begin{enumerate}
+  \item How do the presented algorithm for detecting community system, which previously haven't been well-benchmarked, compare to existing algorithms in terms of time complexity and modularity? 
+  \item Our pipeline compared to the baseline on Execution Metrics. 
+  \item Our pipeline compared to the baseline on Partition Metrics. 
+\end{enumerate}
+\subsection{Execution Metrics}
+Execution metrics are the type of metrics that can be calculated after processing the graph. Some examples of execution metrics can include processing time, number of rounds performed by the partitioner, partitioning time, and network communication overhead. These types of metrics can help measure on specific applications and execution environments but are not suitable for general comparisons. Another limitation can be that they are very costly to measure and evaluate. 
+
+\subsection{Partitioning Metrics}
+From the limitations from the execution metrics stated in the section above, another category of metrics is known as the partition metrics. These types of metrics allow us to evaluate the quality of partitions produced prior to actual graph processing. These metrics are suitable for general comparison and are less costly to evaluate and measure. The most common metrics are the four partition metrics; Balance, Vertex Cut, Largest Partition, and Normalized Standard Deviation. \\ \\
+Balance(Bal) is used to measure the ratio between maximum number of edges in one partition and average number of edges in all subsets. It is defined as: \\\\
+\begin{equation} \label{eu_eqn}
+Bal = \frac{max_(i=1..N)(|E_i|)}{|E|/N}
+\end{equation}
+\\\\
+A cut is a partition of the vertices of a graph into two disjoint subsets. Any cut determines a cut-set, the set of edges that have one endpoint in each subset of the partition. Edge cut determines the number of cutted edges after partitioning, it is defined as: \\\\
+\begin{equation} \label{eu_eqn}
+EC = |E| - \sum_{i=1}^{N} |F(E_i)|
+\end{equation}
+\\\\
+Largest Partition (LP) is used to show the number of verticies in the largest subset. It is defined as: 
+\begin{equation} \label{eu_eqn}
+LP = max_(i=1...N) |(E_i)|
+\end{equation}
+\\
+\\
+Normalized standard deviation(NSD) is used to show the standard deviation of a partition size. It is defined as:
+\begin{equation} \label{eu_eqn}
+NSD = |V| - \sqrt{(\sum\frac{|E_i|}{E/N}-1)^2} \frac{1}{N}
+\end{equation}
+\\\\
+We will be using these partitioning, execution metrics for evaluating our pipeline on real world graph partitioning. 
+
+\subsection{Community Detection Experiments}
+Community detection is used for coarsening the large real world graph in order to reduce the run time of our partitioning algorithm. Different community detection algorithms already exist, with individual advantages and disadvantages. We ran the following tests to find the optimal coarsening method.
+\\ \\ 
+The test is ran on the Stanford Large Network Dataset(SNAP), especially on the social networks ego-Facebook; 50,515 Nodes, 819,306 Edges, ego-GPlus; 107,614 Nodes, 13,673,453 Edges, and the munsae-github dataset; 37,700 Nodes, 289,003 Edges. These graphs are all undirected graphs with as many as a million edges and ten-thousand nodes. We chose the most frequently used community detection algorithms; Louvain, Girvan-Newman, Spectral Clustering, and the label propagation algorithm. Table 2, 3, 4 shows the results on each dataset. Note that results that are marked as NA took longer than 3 days and discluded from the results. 
+\begin{table}[H]
+\centering
+\caption{Musae-Github Dataset}
+\label{t1}
+\begin{tabular}{|c|c|c|c}
+\noalign{\smallskip}\noalign{\smallskip}\hline
+& Running Time(s) & Modularity(Q)\\
+\hline
+Louvain & 319.183 & 0.26429\\
+\hline
+Girvan-Newman & 9283.192 & 0.21029 \\
+\hline
+Spectral Clustering  & NA & NA \\
+\hline
+Label Propagation  & 34.291 & 0.24628 \\
+\hline
+\end{tabular}
+\centering
+\caption{Ego-Facebook Dataset}
+\label{t1}
+\begin{tabular}{|c|c|c|c|}
+\noalign{\smallskip}\noalign{\smallskip}\hline
+& Running Time(s) & Modularity(Q)\\
+\hline
+Louvain & 494.060 & 0.23912\\
+\hline
+Girvan-Newman & 15928.182 & 0.19392 \\
+\hline
+Spectral Clustering  & NA & NA \\
+\hline
+Label Propagation  & 73.2039 & 0.21293 \\
+\hline
+\end{tabular}
+\centering
+\caption{Ego-Google Dataset}
+\label{t1}
+\begin{tabular}{|c|c|c|c|}
+\noalign{\smallskip}\noalign{\smallskip}\hline
+& Running Time(s) & Modularity(Q)\\
+\hline
+Louvain & 71195.620 & 0.36128\\
+\hline
+Girvan-Newman & NA & NA \\
+\hline
+Spectral Clustering  & NA & NA \\
+\hline
+Label Propagation  & 22039.32 & 0.34142 \\
+\hline
+\end{tabular}
+\end{table}
+
+From the results in the tables above, we can confirm that the time complexity of the algorithms are as in the table below.
+
+\begin{table}[H]
+\centering
+\caption{Running time of community detection algorithms}
+\label{t1}
+\begin{tabular}{|c|c|c|c}
+\noalign{\smallskip}\noalign{\smallskip}\hline
+& Time Complexity\\
+\hline
+Louvain & $O(nlogn)$\\
+\hline
+Girvan-Newman & $O(m^{2}n)$ \\
+\hline
+Spectral Clustering & $O(n^{3})$ \\
+\hline
+Label Propagation  & $O(n)$\\
+\hline
+\end{tabular}
+\end{table}
+
+Modularity is equally important in deciding the optimal community detection algorithm. Although the Louvain's algorithm has the highest modularity value, the difference is minimal leading to our conclusion that it is not suitable to run Louvain for graphs following the power law. Thus, we have decided to select label propagation method, partially giving up the quality in exchange for a faster running time. 
+\\
+\subsection{Full Pipeline Experiments}
+Next we show the results of our full pipeline consisted of Label Propagation for coarsening the graph, partitioning based on the Kernighan-Lin algorithm, and uncoarsening. We are comparing the results to the baseline partitioning algorithms: Fiduccia-Mattheyses, and Kernighan-Lin. Table 7 shows the results on each of the categories of the ego-facebook dataset.
+\begin{table}[H]
+\centering
+\caption{Categories of Ego-Facebook Dataset}
+\label{t1}
+\begin{tabular}{|c|c|c|c|}
+\noalign{\smallskip}\noalign{\smallskip}\hline
+& Nodes & Edges\\
+\hline
+Government & 7,057 & 89,455\\
+\hline
+New Sites & 27,917 & 206,259\\
+\hline
+Athletes & 13,866 & 86,858 \\
+\hline
+Public Figures & 11,565 & 67,114\\
+\hline
+TV Shows & 3,892 & 17,262\\
+\hline
+Politician & 5,908 & 41,729 \\
+\hline
+Artist & 50,515 & 819,306 \\
+\hline
+Company & 14,113 & 52,310 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Evaluation on partitioning metrics: Our pipeline}
+\label{t1}
+\begin{tabular}{|c|c|c|c|c|}
+\noalign{\smallskip}\noalign{\smallskip}\hline
+& Balance & Edge Cut & Largest Partition & Normalized Standard Deviation\\
+\hline
+Government & 1.8392 & 18,923 & 56 & 0.62934 \\
+\hline
+New Sites & 2.4371 & 135,293 & 269 & 0.78291 \\
+\hline
+Athletes & 1.5291 & 58,234 & 49 & 0.72819 \\
+\hline
+Public Figures & 1.8928 & 41,319 & 38 & 0.34912\\
+\hline
+TV Shows & 1.1293 & 9281 & 21 & 0.22982\\
+\hline
+Politician & 1.6782 & 27,847 & 46 & 0.68291\\
+\hline
+Artist & 3.1293 & 682,918 & 48 & 0.81029\\
+\hline
+Company & 2.1039 & 35,203 & 21 & 0.62731\\
+\hline
+\end{tabular}
+\end{table}
+The following tables (Table 8, Table 9) are the experiment results for the Fiduccia-Mattheyses, and the Kernighan-Lin algorithm evaluated with the same metrics. 
+
+\begin{table}[H]
+\label{t1}
+\centering
+\caption{Evaluation on partitioning metrics: Fiduccia Mattheyses}
+\label{t1}
+\begin{tabular}{|c|c|c|c|c|}
+\noalign{\smallskip}\noalign{\smallskip}\hline
+& Balance & Edge Cut & Largest Partition & Normalized Standard Deviation\\
+\hline
+Government & 1.4928 & 17,582 & 43 & 0.82910 \\
+\hline
+New Sites & 1.8920 & 127,291 & 219 & 0.88392 \\
+\hline
+Athletes & 1.4192 & 52,019 & 32 & 0.81024 \\
+\hline
+Public Figures & 1.6718 & 38,742 & 31 & 0.64013\\
+\hline
+TV Shows & 1.0193 & 7819 & 29 & 0.29301\\
+\hline
+Politician & 1.5029 & 24,301 & 37 & 0.71902\\
+\hline
+Artist & 2.8901 & 634,991 & 45 & 0.84059\\
+\hline
+Company & 1.9841 & 32,049 & 19 & 0.78901\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\label{t1}
+\centering
+\caption{Evaluation on partitioning metrics: Kernighan Lin}
+\label{t1}
+\begin{tabular}{|c|c|c|c|c|}
+\noalign{\smallskip}\noalign{\smallskip}\hline
+& Balance & Edge Cut & Largest Partition & Normalized Standard Deviation\\
+\hline
+Government & 1.6919 & 18,029 & 52 & 0.71894 \\
+\hline
+New Sites & 2.4019 & 139,401 & 251 & 0.78901 \\
+\hline
+Athletes & 1.4910 & 56,193 & 58 & 0.69102 \\
+\hline
+Public Figures & 1.7182 & 46,298 & 49 & 0.51029\\
+\hline
+TV Shows & 1.1193 & 8689 & 15 & 0.49281\\
+\hline
+Politician & 1.5890 & 25,291 & 39 & 0.69029\\
+\hline
+Artist & 2.9103 & 652,948 & 59 & 0.78192\\
+\hline
+Company & 2.0193 & 32,194 & 18 & 0.78193\\
+\hline
+\end{tabular}
+\end{table}
+Now we perform evaluation on the total running time of our pipeline and the baseline algorithms. The running time is measured in seconds(s). We decided that valid results are in the range of maximum two days. Results with NA indicates that the algorithm took more than 3 hours to run on an input graph.
+\begin{table}[H]
+\label{t1}
+\centering
+\caption{Running time Comparison(s)}
+\label{t1}
+\begin{tabular}{|c|c|c|c|c|}
+\noalign{\smallskip}\noalign{\smallskip}\hline
+& Our pipeline & Fiduccia-Mattheyses & Kernighan-Lin \\
+\hline
+Government & 18.592 & 159.102 & 468.495\\
+\hline
+New Sites & 789.192 & NA & NA\\
+\hline
+Athletes & 49.761 & 278.301 & 1789.301 \\
+\hline
+Public Figures & 42.982 & 156.693 & 1491.092\\
+\hline
+TV Shows & 5.119 & 78.103 & 391.982\\
+\hline
+Politician & 7.992 & 91.592 & 420.678\\
+\hline
+Artist & 1018.824 & NA & NA\\
+\hline
+Company & 165.834 & 890.069 & 2782.958\\
+\hline
+\end{tabular}
+\end{table}
+Observing the output, we could find that the average running time of our pipeline is approximately \emph{12.56} times faster compared to the Fiduccia-Mattheyses, and \emph{36.78} times faster compared to the Kernighan-Lin algorithm. If the number of nodes of the input graph is larger than 100k, the running time cannot be compared since the baseline algorithms takes too long. We can conclude that by giving up a small amount of quality of the partitioning (compared with edge cuts), we can partition real world graphs much faster. 

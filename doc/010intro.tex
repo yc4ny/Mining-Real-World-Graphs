@@ -1,0 +1,53 @@
+Graph partitioning problem can be applied in many real world applications, such as VLSI circuit design, internet router design, community detection in SNS and many others. \\ As there are increasing attempts to apply graph partitioning algorithms to real world graphs, many approximate solutions have been developed including multilevel approach and spectral clustering, but there are still no `good cuts'. We therefore propose an iterative multilevel $k$-way graph partitioning algorithm that finds better cuts than the existing schemes.\\
+To help you understand the defined problem we are trying to solve, we add a brief explanation of the existing graph partitioning methods. For the rest of the paper, we utilize some general symbols related to graph theory. Table \ref{tab:symbols} gives a list of common symbols we used. \\
+
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|l | c | } \hline \hline
+Symbol & Definition \\ \hline
+$G = (V,E)$ & graph \\
+$n = |V|$ & number of nodes of G \\
+$V$ & vertices \\
+$E$  & edges \\ 
+\hline
+\end{tabular}
+\end{center}
+\caption{Symbols and definitions}
+\label{tab:symbols}
+ \end{table}
+
+
+\textbf{1. Existing Methods}\\ \\
+Graph partitioning has a clear objective and a clear constraint. The goal is to minimize the edge-cut, and the constraint involves that the sum of the node weights in each partition should be of same size. Choosing optimal methods is an NP-complete problem and thus, we need good heuristics to efficiently obtain high-quality partitions.\\ \\
+
+\rmfamily{1.1 Geometric Partitioning}\\\\
+We now describe one of the partitioning algorithm, geometric based algorithm suggested by Miller, Teng, Thruston, and Vavasis. This method uses $circles$ instead of a line to cut the graph. This method is one of the vertex separator, that regards graphs as a collection of vertices, instead of edges. Then when we embed the vertices into d-dimensional space, each vertex will have their unique coordinates. Compute the $centerpoint$ of the projected points on the surface of the $d+1$ dimensional sphere and move the centerpoint to the origin of the sphere. After few more steps of this algorithm yields a vertex separator. \\\
+
+
+\rmfamily{1.2 Spectral Partitioning} \\\\
+Before we get into spectral partitioning, we introduce Laplacian matrices and the Fiedler vector. The Laplacian matrix is defined as $L = D - A$, where $A$ $\subset \mathbb{R}^{n\times n}$ is the adjacency matrix of the graph $G = (V,E)$ and the diagonal matrix $D = diag(Ae)$, where vector $e = (1,1,...1)^{T}$. A Fiedler vector is an eigenvector corresponding to the second smallest eigenvalue of the Laplacian matrix of $G$. Let us assume that $\vec{u} = (u_1, u_2, ..., u_n)$ be a Fiedler vector of the Laplacian of $G$. The idea of spectral partitioning is to find a splitting value $s$ and partition the vertices of $G$ into the set of $i$ such that $u_i > s$ and the set such that $u_i \leq s$.
+\\\\
+\textbf{2. Overview of Multi-level Partitioning (MLP)} \\\\
+Many previous research has been done on MLP to solve the efficiency of large graph partitioning problem. The first step of MLP is to replace $G(V,E)$ by a coarse approximation $G_c(V_c,E_c)$, and partition the coarsened $G_c$ instead. Next we use the partitions of $G_c$ to get a rough partitioning of the original $G$, and then iteratively improve it. Below are detailed explanations of the three stages of MLP: \textbf{coarsening, partitioning, and uncoarsening}.      
+\\\\
+\rmfamily{2.1 Coarsening Methods} \\ \\
+In the first phase, starting with the original graph $G_0$, a sequence $L=<G_0,G_1,\dots,G_m>$ is generated such that $|V_0| > |V_1| > \dots >|V_m|$. At each step, the coarsening algorithm reduces the number of vertices of a graph to form a collapsed vertex of the coarser graph and there are various methods for the reduction. \\
+\begin{itemize}
+    \item RM (Random Matching)\\
+    While randomly visiting all vertices of the given graph and if a vertex \textit{u} has not been matched to another vertex yet, then you randomly select one of its unmatched adjacent vertices. Then you include the edge $(u, v)$ in the matching and mark \textit{u} and \textit{v} as matched. If there is no unmatched adjacent vertex \textit{v}, then vertex \textit{u} remains unmatched.
+    \item HEM (Heavy Edge Matching) \\
+    Instead of randomly matching a vertex with one of its adjacent unmatched vertices, it is matched with a vertex such that the weight of the edge is heaviest over all valid incident edges. Simply put, the goal of this technique is finding a maximal matching that contains edges with large weight. \\
+\end{itemize}
+\rmfamily{2.2 Partitioning Algorithms}
+\begin{itemize}
+    \item Kernighan-Lin Algorithm (KL)\\
+    KL is a greedy partition algorithm that takes in a graph containing nodes and vertices as input, and outputs separate subsets that are connected together in an optimal matter. The algorithm optimizes the partition in an iterative manner. Given $G = (N,E,W_E)$, a partitioning $N = A \cup B$, where $|A| = |B|$ and $T=cost(A,B)$, we first find subsets $X$ of $A$ and $Y$ of $B$ with $|X|= |Y|$. Then we consider swapping X and Y if it decreases cost. newA = (A-X) $\cup$ Y and newB = (B-Y) $\cup$ X, newT = cost(newA,newB) $<$ T = cost(A,B). Finally we iteratively repeat the process and compute new T efficiently for many possible X and Y. The KL algorithm is generally robust but it is computationally intensive with a time complexity of $O(|N|^{3})$, shows weak performance with weighted graphs, and due to its randomness, the solution is largely dependant on the first swap. \\
+    \item Fiduccia-Mattheyses (FM) \\
+    FM works similar to KL but instead of swapping two vertices, KL only swaps a single element every step. FM improved the definitions in KL and the time complexity of the procedure. The gains are computed for single vertex moves in FM compared to exchanges, and the worst case running time of the procedure was reduced to $O(E)$ with new definition and the use of novel data structures. An important advantage of FM is that we are able to convert the gain definition to the case of vertex separators. The move of a vertex can be defined to be from the separator to a partition. We introduce a modification of the FM algorithm in the Proposed Methods section. \\
+\end{itemize}
+\rmfamily{2.3 Uncoarsening phase} \\
+The uncoarsening phase is responsible for projecting back the partition $P_m$ to the original
+graph. This is performed in successive projections to finer graphs in the sequence of
+$G_{m-1},\dots,G_0$ until the partition on the original graph is obtained.
+Computing $P_{i}$ from $P_{i+1}$ is straightforward: $\forall u \in V_i^v
+P_i[u] = P_{i+1}[v]$. We simply map the partition of a collapsed vertex to its constituent vertices during a projection. In the process, $P_i$ usually ceases to be locally optimum since it has more vertices and edges.  The refinement algorithms are usually a kind of gain heuristic or a hybrid of gain heuristic and another improvement algorithm. The ones we have seen to be practical are usually implementations based on the Fiduccia-Mattheyses (FM) variant of Kernighan-Lin (KL) optimization algorithm.

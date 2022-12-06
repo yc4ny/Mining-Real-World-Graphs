@@ -1,0 +1,105 @@
+Next we list the papers that each member read, along with their summary and critique.
+
+\subsection{Papers read by Yonwoo Choi}
+The first paper was the Fast and High Quality Multilevel Scheme for Partitioning Irregular Graphs paper by Karypis. 
+\cite{Irregular_Graphs}
+\begin{itemize*}
+\item {\em Main idea}: \\
+Deriving three phases of a multilevel algorithm consisted of coarsening, partition of the coarsest graph, and refinement to solve the bottleneck problem which occurs when large graph partitioning is being solved in parallel. For computing fill-reducing orderings for sparse matrices, the algorithm in the paper outperforms previous state of art minimum degree algorithms due to the better global view of the graph, critical for partitioning large graphs.    
+\item {\em Use for our project}:\\
+It is somewhat related to our project, because there are detailed implementations of the coarsening,uncoarsening which helps provide a good global and local view of the large graph. There are also refinement methods during the uncoarsening phase which can be used to filter outliers from our network. 
+\item {\em Shortcomings}:\\
+For partitioning the coarsest graph, using spectral bisection nearly has no advantage over previous partitioning methods.  
+\end{itemize*}
+
+The second paper was the Balanced Graph Partitioning paper by Andreev. 
+\cite{BalancedGraphPartitioning}
+\begin{itemize*}
+\item {\em Main idea}: \\
+Using a bi-criteria approximation algorithm and t-partitioning, it solves the (k, 1+$\epsilon$) balanced partitioning problem. It turns out that this algorithm's running time achieves a polynomial time of $O(log^{2}n)$ in respect to the capacity of edges between different partitions. This algorithm is also capable of balancing the weight of the nodes in the case where nodes of the graph are weighted.
+++\item {\em Use for our project}: \\
+It is quite related to our project, because we can generalize the $k$ balanced partitioning problem in the paper to the problem to the case where different partitions are required to have different size. Then, we could apply the updated solution for improving the speed of the processor in partitioning graphs.  
+\item {\em Shortcomings}: \\
+The algorithm requires all partitions have the same size which may not be a general solution to real graphs. 
+\end{itemize*}
+
+The third paper was the How to Partition a Billion-Node Graph by Wang.
+\cite{Billion_Node_Graph}
+\begin{itemize*}
+\item {\em Main idea}: \\
+Proposes a novel approach called MLP(Multi-level label propagation) method to solve the problem of partitioning billion-node graphs on a general purpose distributed memory system. This approach iteratively coarsens a graph until the graph is small enough to use the METIS\cite{Metis} algorithm to generate the final partitioning on the coarsened graph. Compared to existing methods, MLP is more effective, parallelized, and able to process larger graphs. 
+\item {\em Use for our project}: \\
+It is highly related to our project, because we are working on partitioning real world graphs using a multi-level approach. The MLP pipeline could be used as a baseline of our approach, and it would be meaningful if we improve the coarsening step or the refinement step with additional constraints. 
+\item {\em Shortcomings}:\\
+MLP's coarsening strategy convergences quite slow compared to SHEM (Sorted Heavy Edge Matching). If there is a constraint that pays special attention to matching small-degree vertices, there may have been a faster convergence.  
+\end{itemize*}
+
+
+\subsection{Papers read by Hyoyoung Lho }
+The first paper was the Graphchi : Large-Scale Graph Computation on Just a PC paper by Kyrola, Blelloch and Guestrin.
+\cite{GraphChi}
+\begin{itemize*}
+\item {\em Main idea}: \\
+GraphChi proposes Parallel Sliding Window method (PSW), for computation of large-scale graph on a single consumer PC. PSW divides the vertices of graph (V,E) into P intervals, and iterate the load from disk, update vertex, and write to disk process. PSW reduces the number of I/O costs and works well on both SSDs and traditional hard drives. This method allowed people to do computations of large graph that was previously available through multiple computations on a cluster.
+\item {\em Use for our project}: \\
+The idea of updating vertices in graph by label propagation method: on each iteration, vertex writes its label to its edges, and on subsequent steps vertex chooses a new label based on the labels of its neighbors, which has the most frequent label.
+\item {\em Shortcomings}: \\
+It is somewhat hard to understand the system design algorithm part used in this paper and improving based on this paper's idea might be quite difficult.
+
+\end{itemize*}
+The second paper was the Improving Graph Partitioning for Modern Graphs and Architectures by LaSalle, Patwary, Satish, Sundaram, Dubey and Karypis.
+\cite{Improving}
+\begin{itemize*}
+\item {\em Main idea}: \\
+Proposes new ideas for algorithmic modifications of graph partitioning. In the phase of aggregating vertices, it uses two-hops method, which allows two vertices to be aggregated together if they have a common-neighbor. For coarsening, it contracts vertices using both hash tables and dense vectors. Cache oriented initial partitioning allows the number of partitionings to be created regardless of the size of the coarsest graph. Parallel refinement in uncoarsening phase reduces the runtime of uncoarsening phase.
+\item {\em Use for our project}: \\
+We can implement one of the ideas suggested in this paper since the result of experiments show significant reduction in running time of the algorithm or improvements in performance.
+\item {\em Shortcomings}: \\
+Although implementing two-hop matching ensures the next coarser graph to be of smaller, it takes additional time because two-hop matching is applied after maximal matching.
+\end{itemize*}
+
+The third paper was Graph Partition Neural Networks for Semi-Supervised Classification by Liao, Brockschmidt, Tarlow, Gaunt, Urtasun, and Zemel.
+\cite{GPNN}
+\begin{itemize*}
+\item {\em Main idea}: \\
+Graph Propagation Neural Network, which extends graph neural network utilizes locally propagating information between nodes in small graphs and global propagation of information between subgraphs.
+\item {\em Use for our project}: \\
+For now, we are not considering using neural networks in our project but the ideas of GNN can be adopted such as partitioning based on the output of probability of softmax function.
+\item {\em Shortcomings}: \\
+It has limitation in that high parallel computer is needed in message passing between the nodes, which is a major disadvantage of neural network based ideas. 
+
+\end{itemize*}
+
+
+\subsection{Papers read by Sohyun Kim}
+The first paper was about multilevel k-way partitioning scheme for irregular graphs by Karypis.
+\cite{k-way}
+\begin{itemize*}
+\item {\em Main idea}:\\
+Compared with the existing recursive bisection based k-way partitioning, multilevel k-way partitioning performs faster and better due to several reasons. It uses a coarsening method that enables the matching of vertices not by randomly, but by finding incident edges of largest weights. Then the coarsest graph created is partitioned directly into $k$ groups instead of being cut in two repeatedly.
+\item {\em Use for our project}:\\
+This paper is a very solid introductory material that helps us capture the fundamental concepts of multilevel k-way partitioning. In addition, there are several different methods listed in each the coarsening and coarsening phases, and we can select and make use of (or first try improving) some techniques that seem to fit our problem.
+\item {\em Shortcomings}:\\
+Most of the irregular graphs they used for their experiments are derived from finite element meshes which means the degree distribution can be relatively uniform. Therefore, the listed techniques may not be a best nor general solution for partitioning real graphs.
+\end{itemize*}
+
+The second paper was about multilevel algorithms for multi-constraint graph partitioning by Karypis.
+\cite{Multi-Constraint}
+\begin{itemize*}
+\item {\em Main idea}:\\
+$K$-way graph partitioning problems can be extended to multi-constraint $k$-way graph partitioning, which the vertices have multiple weights and each of them should be independently balanced. Some problems can be solved with the existing multilevel partitioning paradigm, especially focusing on improving the balance rather than improving the edge-cut refinement phase.
+\item {\em Use for our project}:\\
+If we are to partition a graph with vertices each having at least two or more weights, we now know that we can use the existing multilevel partitioning paradigm without having to come up with a whole new scheme.
+\item {\em Shortcomings}: Although it is meaningful that these technologies can be the basis of future work in dealing with multi-constraints, the tested graphs are too limited to 3D finite element meshes which lack irregular characteristics.
+\end{itemize*}
+
+The third paper was about multilevel partitioning of power law graphs by Amine Abou-Rjeili and George Karypis.
+\cite{Power-Law_Graphs_Partitioning}
+\begin{itemize*}
+\item {\em Main idea}: The suggested new multi-level partitioning algorithms differ from the existing methods in that at the graph coarsening phase, none of the vertices are left unmatched; they are always joined in one of the adjacent clusters, which solves the problem of limited size of possible matching in real world graphs due to uneven degree distribution.
+\item {\em Use for our project}:\\
+Presented clustering coarsening schemes can be applied to our problem since it is designed in consideration of the characteristics of scale-free graph.
+\item {\em Shortcomings}:\\
+There is little difference from the existing algorithms except for the coarsening phase.
+\end{itemize*}
+

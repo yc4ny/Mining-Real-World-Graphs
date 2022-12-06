@@ -1,0 +1,9 @@
+This is one of the few papers which focuses on partitioning real world graphs using a multi-level approach. We propose to use a community detection algorithm named label propagation for coarsening, or clustering, the initial nodes to exponentially reduce the running time of our pipeline. The major contributions are listed as follows: 
+\begin{enumerate}
+  \item Built a multi-level graph partitioning pipeline which can robustly partition graphs with more than 100k nodes.
+  \item Used label propagation, a robust community detection algorithm for reducing running time by forming clusters of original nodes. 
+  \item Significantly reduced running time of partitioning compared to the previous baselines. 
+\end{enumerate}
+Label propagation method in the coarsening stage greatly reduces the running time of our overall algorithm. While doing survey and experiments, we verified that label propagation method runs in linear time. Our pipeline is approximately 12 times faster than the Fiduccia-Mattheyses algorithm, and 37 times faster than Kernighan-Lin algorithm. So we assumed that before performing the partitioning stage, using label propagation could improve the overall architecture of partitioning real world graph data in terms of running time of the algorithm. \\ 
+By implementing the pipeline that we designed, we could verify that the number of clusters of the output is significantly smaller than the number of clusters in the original graph, while preserving the property of the original graph. Therefore, by applying the KL algorithm to the reduced number of cluster nodes, time consumed in partitioning is much faster. Through the experiments we confirmed that by giving up minimal amount of partitioning quality, we could gain much more running time reduction.\\
+Future work could generalize our algorithm for partitioning real world graphs to time evolving real world graphs. 
