@@ -7,7 +7,7 @@ def get_key(dic, val):
         if val in value:
             return key
  
-    return "key doesn't exist"
+    return "None"
 
 if __name__ == "__main__":
     # Parse command line arguments  
