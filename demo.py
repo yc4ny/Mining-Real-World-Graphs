@@ -14,7 +14,7 @@ if __name__ == "__main__":
     start_time = time.time()
     # Parse command line arguments  
     parser = argparse.ArgumentParser(description = "Demofile ArgsParser")
-    parser.add_argument('--input', type = str, default = 'datasets/git_web_ml/musae_git_edges.csv', help = 'output from community detection')
+    parser.add_argument('--input', type = str, default = 'dataset/git_web_ml/musae_git_edges.csv', help = 'output from community detection')
     args = parser.parse_args()
 
     # Get the graph name for future saving purposes
