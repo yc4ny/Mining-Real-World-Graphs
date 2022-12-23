@@ -1,7 +1,7 @@
 # Partitioning Real World Graphs with <br/> Label Propagation for Community Detection
 
 Implementation of the term project for the course M2177.003000 Advanced Data Mining Course at SNU.<br/>
-Code can be found on my github at ```https://github.com/yc4ny/Graph-Mining```
+Code can be found on my github at ```https://github.com/yc4ny/Mining-Real-World-Graphs```
 <p align= "center">
 <img src="img/graph_partitioning.png" width="650" height="320" alt="pipeline" class="center"/><br/><br/>
 </p>
